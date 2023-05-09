@@ -1,0 +1,14 @@
+plugins {
+    id 'java-library'
+}
+
+
+repositories {
+    google()
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.android.tools.build:gradle:7.0.1'
+    implementation gradleApi()
+}

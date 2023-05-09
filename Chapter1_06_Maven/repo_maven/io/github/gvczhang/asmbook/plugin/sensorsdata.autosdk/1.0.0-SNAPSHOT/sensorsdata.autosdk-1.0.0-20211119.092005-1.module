@@ -1,0 +1,117 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "io.github.gvczhang.asmbook.plugin",
+    "module": "sensorsdata.autosdk",
+    "version": "1.0.0-SNAPSHOT",
+    "attributes": {
+      "org.gradle.status": "integration"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5",
+      "buildId": "aa6q5td6e5cotl7xzgqxti5q7i"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "sensorsdata.autosdk-1.0.0-SNAPSHOT.jar",
+          "url": "sensorsdata.autosdk-1.0.0-SNAPSHOT.jar",
+          "size": 2944,
+          "sha512": "5bf4bd2ff9c76834fdcadb6dc9ad7e1c345b7aec12b7e990fb197c90c2334c38a96a69052c42d8294fe7fc41bd129f4a6bfb272e340d13e7cfcb4953abc4f48a",
+          "sha256": "e84601fb5f96aafe2e49d187ab8d86977401e30defa193f375879cdc33dfc38a",
+          "sha1": "be932e375aca24f0735a5e890dc7be773d61d74c",
+          "md5": "7b391ccb56b276b080c7c8acdfef76ae"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.sensorsdata.analytics.android",
+          "module": "android-gradle-plugin2",
+          "version": {
+            "requires": "+"
+          }
+        },
+        {
+          "group": "com.android.tools.build",
+          "module": "gradle",
+          "version": {
+            "requires": "4.1.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "sensorsdata.autosdk-1.0.0-SNAPSHOT.jar",
+          "url": "sensorsdata.autosdk-1.0.0-SNAPSHOT.jar",
+          "size": 2944,
+          "sha512": "5bf4bd2ff9c76834fdcadb6dc9ad7e1c345b7aec12b7e990fb197c90c2334c38a96a69052c42d8294fe7fc41bd129f4a6bfb272e340d13e7cfcb4953abc4f48a",
+          "sha256": "e84601fb5f96aafe2e49d187ab8d86977401e30defa193f375879cdc33dfc38a",
+          "sha1": "be932e375aca24f0735a5e890dc7be773d61d74c",
+          "md5": "7b391ccb56b276b080c7c8acdfef76ae"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "sensorsdata.autosdk-1.0.0-SNAPSHOT-javadoc.jar",
+          "url": "sensorsdata.autosdk-1.0.0-SNAPSHOT-javadoc.jar",
+          "size": 23058,
+          "sha512": "1d7e09a1e46d47fea8c8de40035d08c8e3df3c1b9aefd7d27ca17756d7fbe148ac82f6b74753fa7011345f64aaa6fb3ec2c15bf4323c23e3aa3225bae621dc6e",
+          "sha256": "e4ec70b1e3d6c23701a2bf864f589afd5abcaa1271ea3699955636fbc7e2fa83",
+          "sha1": "5da505a592d7b0274bfae29c5ea7955b9f855fa8",
+          "md5": "e684827d753875f4503969978517383c"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "sensorsdata.autosdk-1.0.0-SNAPSHOT-sources.jar",
+          "url": "sensorsdata.autosdk-1.0.0-SNAPSHOT-sources.jar",
+          "size": 1939,
+          "sha512": "7f43d17c37b629094707d9de2dc614c37402e85c12fd8644dd649f27fb42486f4bb6594fe06e96666b7ff663dfcf773774d082a1a105824d822f7ce55da5772a",
+          "sha256": "95c7e02e1787bf29c7111d3175b3dc7571fc92494947fc7e329dcf1c0f812355",
+          "sha1": "6f434db3e4c9d8874f4de1154d96338894b2b89a",
+          "md5": "f3a057c9c1061e20ed89e7f87234a888"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "cn.sensorsdata.asmbook.plugin",
+    "module": "myPlugin",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5",
+      "buildId": "slbf7i5ibfbqvl5jv343bqd6xy"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "myPlugin-1.0.0.jar",
+          "url": "myPlugin-1.0.0.jar",
+          "size": 3335,
+          "sha512": "db6ffba69a7084fc418a9efefb4f1f0f898b669ff7923b628a3911f26bb1fc0c858281337f03c6b083b3b1d8b141ddce1798882e5436ae5f589207b41c245245",
+          "sha256": "40adfa2cc377f2788e1c8041c127a0740efb316108fa26027add101c0ebbc4a2",
+          "sha1": "3c0827ed3f7c784c81d285642592505b859ae12d",
+          "md5": "ba24a5f81f54dc2722ccc9b2b304ff50"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.sensorsdata.analytics.android",
+          "module": "android-gradle-plugin2",
+          "version": {
+            "requires": "+"
+          }
+        },
+        {
+          "group": "com.android.tools.build",
+          "module": "gradle",
+          "version": {
+            "requires": "4.1.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "myPlugin-1.0.0.jar",
+          "url": "myPlugin-1.0.0.jar",
+          "size": 3335,
+          "sha512": "db6ffba69a7084fc418a9efefb4f1f0f898b669ff7923b628a3911f26bb1fc0c858281337f03c6b083b3b1d8b141ddce1798882e5436ae5f589207b41c245245",
+          "sha256": "40adfa2cc377f2788e1c8041c127a0740efb316108fa26027add101c0ebbc4a2",
+          "sha1": "3c0827ed3f7c784c81d285642592505b859ae12d",
+          "md5": "ba24a5f81f54dc2722ccc9b2b304ff50"
+        }
+      ]
+    }
+  ]
+}

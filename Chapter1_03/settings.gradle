@@ -1,0 +1,3 @@
+include ':myPlugin'
+include ':app'
+rootProject.name = "Chapter1_03"

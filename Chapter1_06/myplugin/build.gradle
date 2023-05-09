@@ -1,0 +1,52 @@
+plugins {
+    id "java-gradle-plugin"
+    id 'maven-publish'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    //添加神策分析 android-gradle-plugin2 依赖
+    implementation "com.sensorsdata.analytics.android:android-gradle-plugin2:+"
+    implementation "com.android.tools.build:gradle:4.1.2"
+}
+
+//组织或者公司名称
+group="cn.sensorsdata.asmbook.plugin"
+//版本号
+version='1.0.0'
+
+gradlePlugin {
+    plugins { 
+        sensorsAutoPlugin {
+            id = 'sensorsdata.autosdk'
+            implementationClass = 'cn.sensorsdata.asmbook.myplugin.AutoAddSensorsDataSDKPlugin'
+        }
+    }
+}
+
+//./gradlew publish  发布到本地
+publishing {
+
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'myPluginRepo'
+            url = '../repo_maven'
+        }
+    }
+}

@@ -1,0 +1,42 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation 'org.ow2.asm:asm:9.2'
+    implementation 'org.ow2.asm:asm-tree:9.2'
+    implementation 'org.ow2.asm:asm-commons:9.2'
+    implementation 'org.ow2.asm:asm-analysis:9.2'
+    implementation 'org.ow2.asm:asm-util:9.2'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation 'commons-io:commons-io:2.11.0'
+    compileOnly 'com.android.tools.build:gradle:3.4.1', {
+        exclude group:'org.ow2.asm'
+    }
+}
+
+publishing {
+    publications {
+        myPlugin(MavenPublication) {
+            from components.java
+
+            group = 'cn.sensorsdata.autotrack'
+            artifactId = 'plugin'
+            version = '1.0.0'
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'plugin'
+            url = layout.getProjectDirectory().dir("repo")
+        }
+    }
+}

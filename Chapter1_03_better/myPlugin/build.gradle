@@ -1,0 +1,49 @@
+plugins{
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+//不再需要依赖 gradleApi
+//dependencies {
+//    implementation gradleApi()
+//}
+
+//组织或者公司名称
+group="cn.sensorsdata.asmbook.plugin"
+
+//版本号
+version='1.0.0'
+
+//模块名称
+archivesBaseName='myPlugin'
+
+//Gradle Plugin 配置
+gradlePlugin {
+    plugins {
+        myPluginB {
+            id = 'mytestPlugin'
+            implementationClass = 'cn.sensorsdata.asmbook.myplugin.MyStandalonePlugin'
+        }
+    }
+}
+
+//打包
+publishing {
+    //可以不需要
+//    publications {
+//        myLibrary(MavenPublication) {
+//            from components.java
+//        }
+//    }
+
+    repositories {
+        maven {
+            url '../maven-repo'
+        }
+    }
+}

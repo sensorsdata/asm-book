@@ -1,0 +1,100 @@
+plugins {
+    id "java-gradle-plugin"
+    id 'maven-publish'
+    id 'signing'//❶
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    //添加神策分析 android-gradle-plugin2 依赖
+    implementation "com.sensorsdata.analytics.android:android-gradle-plugin2:+"
+    implementation "com.android.tools.build:gradle:4.1.2"
+}
+
+//组织或者公司名称
+group="io.github.gvczhang.asmbook.plugin"
+//版本号
+version='1.0.0-SNAPSHOT'
+
+java { //❷
+    withJavadocJar()
+    withSourcesJar()
+}
+
+javadoc {//❸
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+//./gradlew publish  发布到本地
+publishing {
+
+    publications {
+        myLibrary(MavenPublication) {//❹
+            //meta info
+            groupId = "io.github.gvczhang.asmbook.plugin"
+            artifactId = 'sensorsdata.autosdk'
+            version = '1.0.0-SNAPSHOT'
+
+            from components.java
+
+            pom {//❺
+                name = 'SensorsDataAutoPlugin'
+                description = 'This is a plugin, that provide a easy way to integrate SensorsData\'s SDK and plugin.'
+                url = 'https://github.com/GvcZhang/SensorsDataAutoPlugin'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'curious'
+                        name = 'ZhangWei'
+                        email = 'curious.a@qq.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://github.com/GvcZhang/SensorsDataAutoPlugin.git'
+                    developerConnection = 'scm:git:ssh://github.com:GvcZhang/SensorsDataAutoPlugin.git'
+                    url = 'https://github.com/GvcZhang/SensorsDataAutoPlugin'
+                }
+            }
+        }
+    }
+
+    repositories {
+
+        mavenCentral {//❻
+            name = 'OSSRH'
+            //publish to local
+            // url = '../repo_maven'
+
+
+            //❼
+            //public to snoatype
+            url = "https://s01.oss.sonatype.org/content/repositories/snapshots" //SNAPSHOT 版本
+            //url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/' //发布的 Maven 中
+            credentials { //配置 ossrh 服务的账户密码信息
+                username = findProperty("ossrhUsername")
+                password = findProperty("ossrhPassword")
+            }
+        }
+    }
+}
+
+signing {//❽
+    sign publishing.publications.myLibrary
+}

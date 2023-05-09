@@ -1,0 +1,3 @@
+rootProject.name = "Chapter2_01"
+include ':app'
+//include ':buildSrc'

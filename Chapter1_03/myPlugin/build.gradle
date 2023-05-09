@@ -1,0 +1,36 @@
+apply plugin:'java' //依赖 Java 插件
+apply plugin:'maven-publish' //依赖 maven 发布插件
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation gradleApi() //依赖 gradle api，这样我们才能使用 Plugin 这个接口
+}
+
+//组织或者公司名称
+group="cn.sensorsdata.asmbook.plugin"
+
+//版本号
+version='1.0.0'
+
+//模块名称
+archivesBaseName='myPlugin'
+
+//maven 打包
+//使用命令 ./gradlew publish 或者 publish{PubName}PublicationTo{RepoName}Repository 形式的命令
+publishing {
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url '../maven-repo'
+        }
+    }
+}

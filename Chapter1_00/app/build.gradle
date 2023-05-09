@@ -1,0 +1,416 @@
+plugins {
+    id 'com.android.application'
+    id "com.dorongold.task-tree" version "1.5"
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "cn.sensorsdata.asmbook.chapter1_00"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+//
+////1.对应：Project#task​(String name)
+//task("style1")
+//
+////2.对应：Project#task​(String name, Closure configureClosure)
+//task("style2"){
+//    println("create task style2")
+//}
+//
+////3.对应：Project#task​(Map<String,​?> args, String name)
+//task(["description":"create task style3"],"style3"){
+//    println("create task style3")
+//}
+//
+////4.先获取 TaskContainer，然后通过 TaskContainer#create 方法来创建 Task
+//getTasks().create("style4"){
+//    println("create task style4")
+//}
+//
+////5.先获取 TaskContainer，然后通过 TaskContainer#register 方法来创建 Task
+////建议使用这种方式来创建 Task，使用懒加载的方式，在使用的时候才真正调用闭包中的值
+//getTasks().register("style5"){
+//    println("create task style5")
+//    doLast{
+//        println("!23123")
+//    }
+//}
+//
+////6.先创建一个 DefaultTask 的子类，然后将类型传给 TaskContainer#create 方法
+//class MyTask1 extends DefaultTask{
+//    @TaskAction
+//    void doSomething(){
+//        println("create task style6")
+//    }
+//}
+////这里的 tasks == getTasks，是 Groovy 的语法特性
+//tasks.create("style6", MyTask1.class)
+
+//Task task1 = task("task1"){
+//    println("task1 configure")
+//    doLast{
+//        println("task1 action==>doLast")
+//    }
+//}
+//
+//task1.configure {
+//    doFirst {
+//        println("task1 action==>doFirst")
+//    }
+//}
+
+//class MyTask extends  DefaultTask{
+//
+//    @TaskAction
+//    void action1(){
+//        println("action1")
+//    }
+//
+//    @TaskAction
+//    void action2(){
+//        println("action2")
+//    }
+//}
+//
+//Task task = tasks.create("myTask", MyTask)
+//task.doFirst {
+//    println("do first")
+//}
+//task.doLast {
+//    println("do last")
+//}
+//
+//getTasks().named("myTask").get().doLast {
+//    println("last2")
+//}
+//
+//getTasks().findByName("myTask").doLast {
+//    println("last3")
+//}
+//
+//getTasks().getByPath(":app:myTask").doLast {
+//    println("last4")
+//}
+
+
+//task("lib1"){
+//    doLast {
+//        println("lib1 executed!")
+//    }
+//}
+//
+//task("lib2"){
+//    doLast {
+//        println("lib2 executed!")
+//    }
+//    dependsOn("lib1")
+//}
+//
+//task("lib3"){
+//    doLast {
+//        println("lib3 executed!")
+//    }
+//    dependsOn("lib2", "lib1")
+//}
+
+//
+//abstract class Greeting extends DefaultTask {
+//    // A configurable greeting
+//    @Input
+//    abstract Property<String> getGreeting()
+//
+//    // Read-only property calculated from the greeting
+//    @Internal
+//    final Provider<String> message = greeting.map { it + ' from Gradle' }
+//
+//    @TaskAction
+//    void printMessage() {
+//        logger.quiet(message.get())
+//    }
+//}
+//
+//tasks.register("greeting", Greeting) {
+//    // Configure the greeting
+//    greeting.set('Hi')
+//    //greeting = 'Hi' // Alternative notation to calling Property.set() - only available in Groovy DSL
+//}
+//
+//abstract class Producer extends DefaultTask {
+//    @OutputFile
+//    abstract RegularFileProperty getOutputFile()
+//
+//    @TaskAction
+//    void produce() {
+//        String message = 'Hello, World!'
+//        def output = outputFile.get().asFile
+//        output.text = message
+//        logger.quiet("Wrote '${message}' to ${output}")
+//    }
+//}
+//
+//abstract class Consumer extends DefaultTask {
+//    @InputFile
+//    abstract RegularFileProperty getInputFile()
+//
+//    @TaskAction
+//    void consume() {
+//        def input = inputFile.get().asFile
+//        def message = input.text
+//        logger.quiet("Read '${message}' from ${input}")
+//    }
+//}
+//
+//def producer = tasks.register("producer", Producer)
+//def consumer = tasks.register("consumer", Consumer)
+//
+//consumer.configure {
+//    // Connect the producer task output to the consumer task input
+//    // Don't need to add a task dependency to the consumer task. This is automatically added
+//    inputFile = producer.flatMap { it.outputFile }
+//}
+//
+//producer.configure {
+//    // Set values for the producer lazily
+//    // Don't need to update the consumer.inputFile property. This is automatically updated as producer.outputFile changes
+//    outputFile = layout.buildDirectory.file('file.txt')
+//}
+//
+//
+//class MyTask1 extends DefaultTask {
+//    @OutputFile
+//    File filePath = new File(getProject().getBuildDir().getAbsolutePath(), "log.txt")
+//
+//    @TaskAction
+//    void doAction() {
+//        println("MyTask1 Action====")
+//    }
+//}
+//
+//class MyTask2 extends DefaultTask {
+//    @InputFile
+//    File resultFile
+//
+//
+//    @TaskAction
+//    void doAction() {
+//        println("MyTask2 Action == $resultFile")
+//    }
+//}
+//
+//
+//class ProcessTemplates extends DefaultTask {
+//    @Input
+//    TemplateEngineType templateEngineType
+//    @Nested
+//    TemplateData templateData
+//    @InputFiles
+//    FileCollection sourceFiles
+//    @OutputDirectory
+//    File outputDir
+//
+//    @TaskAction
+//    void processTemplates() {
+//
+//    }
+//}
+//
+//class TemplateData {
+//    @Input
+//    String name
+//    @Input
+//    Map<String, String> variables
+//}
+//
+//
+//enum TemplateEngineType {
+//    FreeMarker, Velocity
+//}
+//
+////task processTemplates(type: ProcessTemplates) {
+////    templateEngineType = TemplateEngineType.Velocity
+////    templateData = new TemplateData(name: '1', variables: [:])
+////    sourceFiles = files('src1')
+////    outputDir = file('dst')
+////}
+//
+//
+//tasks.register('processTemplatesAdHoc') {
+//    inputs.property('engine', TemplateEngineType.FreeMarker)
+//    inputs.files(fileTree('src/templates'))
+//            .withPropertyName('sourceFiles')
+//            .withPathSensitivity(PathSensitivity.RELATIVE)
+//    inputs.property('templateData.name', 'docs')
+//    inputs.property('templateData.variables', [year: '2013'])
+//    outputs.dir(layout.buildDirectory.dir('genOutput2'))
+//            .withPropertyName('outputDir')
+//
+//}
+//
+//
+//
+//
+//
+//
+//def processTemplates =  tasks.create('processTemplates',MyTask3) {
+//    println("1111111111")
+//    doLast{
+//        println("1111==")
+//    }
+//    outputDir = files("sss")
+//    //outputs.files(fileTree("src/tem"))
+//}
+//
+//tasks.create('testD') {
+//    println("333333333333")
+//    doFirst{
+//        // Process the templates here
+//        println("3333===")
+//    }
+//    inputs.files( processTemplates.outputs)
+//}
+//
+//
+//class MyTask3 extends DefaultTask {
+//    @OutputFiles
+//    FileCollection outputDir
+//
+//    @TaskAction
+//    void processTemplates() {
+//
+//    }
+//}
+//
+//class MyTask4 extends DefaultTask {
+//    @InputFiles
+//    FileCollection inputFileTmp
+//
+//    @TaskAction
+//    void t() {
+//        println("task4")
+//    }
+//}
+//
+//def task3 =  tasks.create('task3',MyTask3) {
+//    println("1111111111")
+//    doLast{
+//        println("1111==")
+//    }
+//    outputDir = files(layout.buildDirectory.getAsFile().get().getAbsolutePath()+"/log.txt")
+//    //outputs.files(fileTree("src/tem"))
+//}
+//
+//tasks.create("testE", MyTask4){
+//    inputFileTmp = files(task3.outputs)
+//}
+//
+////File 目前测试只能是相对路径的文件
+//File file = file("build.gradle")
+//String abPath = file.absolutePath
+//println("abPath===$abPath")
+//File f1 = new File('/Users/zhangwei/Desktop/log-2.4.1.txt')
+//
+////FileCollection 测试使用
+//FileCollection collection1 = files('build.gradle','proguard-rules.pro',f1)
+//collection1.forEach{
+//    println(it.getName())
+//}
+//
+////FileTree 测试使用
+//println("2222")
+//FileTree tree = fileTree("src")
+//tree.include('**/*.java')
+//
+//tree.forEach{
+//    println("===>${it.absolutePath}")
+//}
+//
+////拷贝文件，也可以是 Copy 这个 Task
+//copy {
+//    from('proguard-rules.pro')
+//    into('build')
+//}
+//
+
+
+//
+//def taskA = tasks.register('taskA') {
+//    doLast {
+//        println 'taskA'
+//    }
+//}
+//def taskB = tasks.register('taskB') {
+//    doLast {
+//        println 'taskB'
+//    }
+//}
+//taskB.configure {
+//    shouldRunAfter taskA
+//}
+
+
+//task("test1"){
+//
+//}
+//
+//task("test2"){
+//    dependsOn("test1")
+//}
+
+
+class IncrementalTask extends DefaultTask {
+
+//    @OutputDirectory
+//    File outputDir= getProject().file("build")
+
+    @OutputDirectory
+    File getOutputDir(){
+        return getProject().file("build")
+    }
+
+    @TaskAction
+    void doAction(){
+        println("do something")
+    }
+
+    @TaskAction
+    void perform(IncrementalTaskInputs taskInputs){
+        println("is incremental: " + taskInputs.isIncremental())
+    }
+}
+
+getTasks().create("testIncremental", IncrementalTask)
+
+
+
+
+

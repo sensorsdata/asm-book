@@ -1,0 +1,61 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "cn.sensorsdata.asmbook.plugin",
+    "module": "myPlugin",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5",
+      "buildId": "an53nbgk4bcjfgpsuinu5qhd7i"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "myPlugin-1.0.0.jar",
+          "url": "myPlugin-1.0.0.jar",
+          "size": 2212,
+          "sha512": "4b8b6b64418879ac51e67695527d48de0917c48dd171f8d3d43e7722c3b4fb91ffc51429b29c967b251e77ef494238d047df5ca7bda6c63c4bca18394a702042",
+          "sha256": "831175df628699e72a232353617f7a494c9bac331874128be53db1b752aedccb",
+          "sha1": "66711dbfd8dfa30546b58718bfae2dcc13383c72",
+          "md5": "3c94ed568073116f53a5b3904e874bde"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "myPlugin-1.0.0.jar",
+          "url": "myPlugin-1.0.0.jar",
+          "size": 2212,
+          "sha512": "4b8b6b64418879ac51e67695527d48de0917c48dd171f8d3d43e7722c3b4fb91ffc51429b29c967b251e77ef494238d047df5ca7bda6c63c4bca18394a702042",
+          "sha256": "831175df628699e72a232353617f7a494c9bac331874128be53db1b752aedccb",
+          "sha1": "66711dbfd8dfa30546b58718bfae2dcc13383c72",
+          "md5": "3c94ed568073116f53a5b3904e874bde"
+        }
+      ]
+    }
+  ]
+}

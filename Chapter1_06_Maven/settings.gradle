@@ -1,0 +1,18 @@
+//plugins 声明依赖关系
+pluginManagement {
+    plugins {
+    }
+    repositories {
+        maven {
+            url(uri("repo_maven"))
+        }
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
+}
+
+include ':myPlugin'
+include ':app'
+rootProject.name = "Chapter1_06_Maven"
+

@@ -1,0 +1,111 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "cn.sensorsdata.autotrack",
+    "module": "plugin",
+    "version": "1.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.0.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "plugin-1.0.0.jar",
+          "url": "plugin-1.0.0.jar",
+          "size": 15581,
+          "sha512": "b417cdc75d491a22cf5498997d0ab9868cdf062a1964aa11a8f5d1e763569848fa60aa3f6a8a433a2274f0bafc139bbda6be9a2eef49f177c8fb0d0bd4b44a60",
+          "sha256": "7fdc89dea8ce7f1d0dc679ea8edacd2166d9bbfafa09f4eb12c8d28febeb0830",
+          "sha1": "3dbec19818861ee562dcddb68a00e552cdd7a8fb",
+          "md5": "80537993b800d81fa3baff9ecfd235a9"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.ow2.asm",
+          "module": "asm",
+          "version": {
+            "requires": "9.2"
+          }
+        },
+        {
+          "group": "org.ow2.asm",
+          "module": "asm-tree",
+          "version": {
+            "requires": "9.2"
+          }
+        },
+        {
+          "group": "org.ow2.asm",
+          "module": "asm-commons",
+          "version": {
+            "requires": "9.2"
+          }
+        },
+        {
+          "group": "org.ow2.asm",
+          "module": "asm-analysis",
+          "version": {
+            "requires": "9.2"
+          }
+        },
+        {
+          "group": "org.ow2.asm",
+          "module": "asm-util",
+          "version": {
+            "requires": "9.2"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-lang3",
+          "version": {
+            "requires": "3.12.0"
+          }
+        },
+        {
+          "group": "commons-io",
+          "module": "commons-io",
+          "version": {
+            "requires": "2.11.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "plugin-1.0.0.jar",
+          "url": "plugin-1.0.0.jar",
+          "size": 15581,
+          "sha512": "b417cdc75d491a22cf5498997d0ab9868cdf062a1964aa11a8f5d1e763569848fa60aa3f6a8a433a2274f0bafc139bbda6be9a2eef49f177c8fb0d0bd4b44a60",
+          "sha256": "7fdc89dea8ce7f1d0dc679ea8edacd2166d9bbfafa09f4eb12c8d28febeb0830",
+          "sha1": "3dbec19818861ee562dcddb68a00e552cdd7a8fb",
+          "md5": "80537993b800d81fa3baff9ecfd235a9"
+        }
+      ]
+    }
+  ]
+}

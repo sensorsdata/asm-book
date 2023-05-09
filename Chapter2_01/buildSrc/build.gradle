@@ -1,0 +1,14 @@
+plugins {
+    id "java-library"
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation gradleApi()
+    implementation "com.android.tools.build:gradle:3.2.0"
+}

@@ -1,0 +1,62 @@
+plugins {
+    id "java-gradle-plugin"
+    id 'maven-publish'
+    id "com.gradle.plugin-publish" version "0.17.0"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    //添加神策分析 android-gradle-plugin2 依赖
+    implementation "com.sensorsdata.analytics.android:android-gradle-plugin2:+"
+    implementation "com.android.tools.build:gradle:4.1.2"
+}
+
+//组织或者公司名称
+group="cn.sensorsdata.asmbook.plugin" //1
+//版本号
+version='1.0.0' //2
+
+gradlePlugin { //3. java-gradle-plugin 对应的扩展，用于生成插件描述信息和插件 id
+    plugins { //4. 添加插件的方法
+        sensorsAutoPlugin { //5. 插件名称
+            id = 'cn.sensorsdata.autosdk'//6. 插件的唯一 id
+            implementationClass = 'cn.sensorsdata.asmbook.myplugin.AutoAddSensorsDataSDKPlugin' //7. 实现类
+        }
+    }
+}
+
+pluginBundle {//8. 配置发布到 Gradle Plugins 上时的基本信息
+    website = 'https://github.com/sensorsdata' //9.网址
+    vcsUrl = 'https://github.com/sensorsdata' //10.github 项目地址
+    description = 'SensorsData SDK' //11.项目描述
+    tags = ['sensorsdata'] //12.项目标签
+
+    plugins { //13
+        sensorsAutoPlugin {//14
+            // id is captured from java-gradle-plugin configuration
+            description = 'SensorsData SDK Android Auto Plguin' //15 插件描述
+            version = '1.0.0' //16 插件版本号
+            tags = ['sensorsdata', 'autosdk']//17
+            displayName = 'Plugin for SA'
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = 'myPluginRepo'
+            url = '../repo_maven'
+        }
+    }
+}

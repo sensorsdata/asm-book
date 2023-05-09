@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/normal_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="匿名类"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/lambda_stateless_btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="无状态 Lambda"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/lambda_state_btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="有状态 Lambda"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/mr_style_new_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="方法引用 New"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/mr_style_static_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="方法引用静态方法"
+        android:textAllCaps="false" />
+    <Button
+        android:id="@+id/mr_style_instance_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="方法引用实例方法"
+        android:textAllCaps="false" />
+
+</LinearLayout>
